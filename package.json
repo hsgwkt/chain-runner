@@ -1,0 +1,17 @@
+{
+  "name": "chain-runner",
+  "version": "0.1.0",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/chain-runner.js",
+  "module": "dist/chain-runner.m.js",
+  "unpkg": "dist/chain-runner.umd.js",
+  "types": "dist/chain-runner.d.ts",
+  "scripts": {
+    "build": "microbundle --sourcemap false",
+    "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "microbundle": "^0.11.0"
+  }
+}
