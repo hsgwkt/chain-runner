@@ -19,7 +19,7 @@ export default function <T>(target: T, fallback: PropertyKey | PropertyKey[] = [
             for (const key of [prop].concat(fallback)) {
               const value = Reflect.get(target, key, receiver)
               if (value !== undefined) {
-                return getProxy(value, [...props, key])
+                return getProxy(value, props.concat(prop))
               }
             }
           }

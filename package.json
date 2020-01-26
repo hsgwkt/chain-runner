@@ -2,7 +2,7 @@
   "name": "chain-runner",
   "version": "0.1.0",
   "license": "MIT",
-  "source": "src/index.ts",
+  "source": "src/chain-runner.ts",
   "main": "dist/chain-runner.js",
   "module": "dist/chain-runner.m.js",
   "unpkg": "dist/chain-runner.umd.js",
