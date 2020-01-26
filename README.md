@@ -1,14 +1,12 @@
 # chain-runner
 
-## example
-
 ```js
-import chainRunner, { getChainProps } from 'chain-runner'
+import chainRunner from 'chain-runner'
 
 const id = 0
 
 function request() {
-  return getChainProps(this)
+  console.log(this.props)
 }
 
 const api = chainRunner({

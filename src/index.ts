@@ -1,3 +1,7 @@
+export type ChainParam = {
+  props: PropertyKey[]
+}
+
 export default function <T>(target: T, fallback: PropertyKey | PropertyKey[] = []): T {
   const cache = new WeakMap()
 
@@ -6,7 +10,7 @@ export default function <T>(target: T, fallback: PropertyKey | PropertyKey[] = [
       return target.bind({ props })
     }
 
-    if (isObject(target)) {
+    if (isPlainObject(target)) {
       let proxy = cache.get(target)
       if (!proxy) {
 
@@ -33,10 +37,9 @@ export default function <T>(target: T, fallback: PropertyKey | PropertyKey[] = [
   return getProxy(target, [])
 }
 
-export function getChainProps(value: any): PropertyKey[] {
-  return value.props
-}
+type PlainObject = Record<PropertyKey, unknown>
 
-function isObject(value: unknown): value is object {
-  return typeof value === 'object' && value !== null
+function isPlainObject(value: unknown): value is PlainObject {
+  return typeof value === 'object' && value !== null &&
+    (value.constructor === Object || !value.constructor)
 }
